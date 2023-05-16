@@ -2,9 +2,11 @@ const express = require("express");
 const cors = require("cors");
 const notes = require("./data/notes.js");
 const dotenv = require("dotenv");
+const connectDB = require("./config/db.js");
 
 const app = express();
 dotenv.config();
+connectDB();
 
 app.use(cors());
 
