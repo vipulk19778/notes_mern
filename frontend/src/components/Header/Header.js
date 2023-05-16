@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,33 +22,33 @@ const Navbar = () => {
           </div>
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              <a
-                href="#"
+              <Link
+                to="/mynotes"
                 className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
               >
                 My Notes
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="/"
                 className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
               >
                 Vipul Kumar
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="/"
                 className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
               >
                 Login
-              </a>
+              </Link>
             </div>
           </div>
           <div className="mr-2 flex md:hidden">
-            <a
-              href="#"
+            <Link
+              to="/"
               className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             >
               Login
-            </a>
+            </Link>
             <button
               onClick={toggleMenu}
               type="button"
@@ -88,18 +89,18 @@ const Navbar = () => {
       </div>
       <div className={`${isOpen ? "block" : "hidden"} md:hidden`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <a
-            href="#"
+          <Link
+            to="/mynotes"
             className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
           >
             My Notes
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/"
             className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
           >
             Vipul Kumar
-          </a>
+          </Link>
         </div>
       </div>
     </nav>
