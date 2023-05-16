@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MainScreen from "../../components/MainScreen";
 import { Link } from "react-router-dom";
-import notes from "../../data/notes";
+import axios from "axios";
 
 const MyNotes = () => {
   const [temp, setTemp] = useState([]);
+  const [notes, setNotes] = useState([]);
 
   const handleViewDetails = (id) => {
     if (temp.includes(id)) {
@@ -18,6 +19,15 @@ const MyNotes = () => {
     if (window.confirm("Are you sure?")) {
     }
   };
+
+  const fetchNotes = async () => {
+    const { data } = await axios.get("http://localhost:5000/api/notes");
+    setNotes(data);
+  };
+
+  useEffect(() => {
+    fetchNotes();
+  }, []);
 
   return (
     <MainScreen title="Welcome Back Vipul Kumar">

@@ -1,9 +1,12 @@
 const express = require("express");
+const cors = require("cors");
 const notes = require("./data/notes.js");
 const dotenv = require("dotenv");
 
 const app = express();
 dotenv.config();
+
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("Server is running...");
