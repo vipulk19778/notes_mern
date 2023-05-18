@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -34,21 +35,21 @@ const Navbar = () => {
               >
                 Vipul Kumar
               </Link>
-              <Link
-                to="/"
+              <div
                 className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                onClick={() => {
+                  localStorage.removeItem("userInfo");
+                  navigate("/");
+                }}
               >
-                Login
-              </Link>
+                Logout
+              </div>
             </div>
           </div>
           <div className="mr-2 flex md:hidden">
-            <Link
-              to="/"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-            >
-              Login
-            </Link>
+            <div className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+              Logout
+            </div>
             <button
               onClick={toggleMenu}
               type="button"
